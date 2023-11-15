@@ -21,6 +21,7 @@
 		9286BFA92AF964E2005EB5EB /* SmartJournalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286BFA82AF964E2005EB5EB /* SmartJournalUITestsLaunchTests.swift */; };
 		9286BFBE2AF967D4005EB5EB /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286BFBD2AF967D4005EB5EB /* PostView.swift */; };
 		9286BFC22AF97524005EB5EB /* ImageCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286BFC12AF97524005EB5EB /* ImageCarousel.swift */; };
+		92D6F9902B05032100C7CE0E /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D6F98F2B05032100C7CE0E /* EditProfileView.swift */; };
 		96026F6F2AFCC03D0017A391 /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96026F6E2AFCC03D0017A391 /* CustomText.swift */; };
 		96026F722AFCC0B40017A391 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96026F712AFCC0B40017A391 /* CustomButton.swift */; };
 		96F1ADFC2AFAAAAD00968C14 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F1ADFB2AFAAAAD00968C14 /* ProfileView.swift */; };
@@ -61,6 +62,7 @@
 		9286BFA82AF964E2005EB5EB /* SmartJournalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartJournalUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9286BFBD2AF967D4005EB5EB /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		9286BFC12AF97524005EB5EB /* ImageCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarousel.swift; sourceTree = "<group>"; };
+		92D6F98F2B05032100C7CE0E /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		96026F6E2AFCC03D0017A391 /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
 		96026F712AFCC0B40017A391 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		96F1ADFB2AFAAAAD00968C14 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = SmartJournal/Features/Profile/ProfileView.swift; sourceTree = SOURCE_ROOT; };
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				96F1ADFB2AFAAAAD00968C14 /* ProfileView.swift */,
+				92D6F98F2B05032100C7CE0E /* EditProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				92683D912AF97DB800BEF279 /* HomeView.swift in Sources */,
 				9286BF8C2AF964DE005EB5EB /* SmartJournalApp.swift in Sources */,
 				96F1ADFC2AFAAAAD00968C14 /* ProfileView.swift in Sources */,
+				92D6F9902B05032100C7CE0E /* EditProfileView.swift in Sources */,
 				92683D932AF9906300BEF279 /* AuthenticationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
