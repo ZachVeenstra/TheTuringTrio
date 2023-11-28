@@ -12,7 +12,7 @@ struct InputField: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding()
-            .background(Color.lightGray)
+            .background(Color.textField)
             .foregroundColor(.black)
             .cornerRadius(10)
     }

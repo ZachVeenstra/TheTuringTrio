@@ -16,6 +16,7 @@ struct ImageCarousel: View {
                     photo.image
                         .resizable()
                         .scaledToFit()
+                        .cornerRadius(10)
                 }
             }
             .tabViewStyle(PageTabViewStyle())

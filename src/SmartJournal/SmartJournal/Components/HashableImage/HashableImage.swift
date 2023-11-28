@@ -8,11 +8,15 @@
 import Foundation
 import SwiftUI
 
-struct HashableImage: Hashable {
+struct HashableImage: Hashable, View {
     let id = UUID()
     var image: Image = Image(systemName: "photo")
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
+    }
+    
+    var body: some View {
+        image
     }
 }

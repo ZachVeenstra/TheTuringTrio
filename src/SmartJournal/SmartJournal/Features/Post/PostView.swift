@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PostView: View, Hashable {
-    var id = arc4random()
+    let id = UUID()
     private let profileImage = Image(systemName: "person.circle")
     private let userName = Text("John Doe")
     private let images = [HashableImage(image: Image(systemName: "photo")), HashableImage(image: Image(systemName: "photo"))]

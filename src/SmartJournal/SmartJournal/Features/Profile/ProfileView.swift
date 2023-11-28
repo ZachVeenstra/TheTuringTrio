@@ -10,43 +10,49 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    private let userName = Text("John Doe")
+    private let userName = "John Doe"
+    private let email = "johndoe@gmail.com"
+    private let bio = "Hey I am having fun"
+    
     private let image = HashableImage(image: Image(systemName: "photo"))
     var body: some View {
-        VStack(alignment: .leading, content: {
-            HStack {
-                Image(systemName: "chevron.left")
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(.black)
-                userName
-                    .font(.largeTitle)
-                }
-            Spacer()
-            HStack {
+        NavigationStack {
+            
+            VStack(alignment: .leading, content: {
+                
+                
                 Spacer()
-                Image(systemName: "person.circle.fill")
-                    .resizable()
-                    .frame(width: 200, height: 200)
-                Spacer()}
-            Spacer()
-            Button {
-                } label: {
-                    Text("Edit Profile")
-                        .frame(maxWidth: .infinity)
+                HStack {
+                    Spacer()
+                    Image(systemName: "person.circle.fill")
+                        .resizable()
+                        .frame(width: 200, height: 200)
+                    Spacer()}
+                Spacer()
+                NavigationLink("Edit Profile") {
+                    EditProfile(username: userName, email: email, bio: bio)
                 }
                 .buttonStyle(ActionButton()) // Apply the custom button style
                 .padding(.top)
                 .padding(.bottom)
+                
+                CustomTextView(text: bio, labelText: "Bio")
+                    
+                CustomTextView(text: email, labelText: "Email")
+                CustomTextView(text: userName, labelText: "Username")
+                
+                Spacer()
+                
+                
+            })
+            .navigationTitle(userName)
+            .navigationBarBackButtonHidden(true)
             
-            //Need to add label texts on the top left corner of the texts elements
-            CustomTextView(text: "Hey I am having fun")
-            CustomTextView(text: "johndoe@gmail.com")
-            CustomTextView(text: "johndoe123")
-            CustomTextView(text: "Student")
-            Spacer()
-        })
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(30)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(30)
+        }
+        
+        
     }
 }
 
