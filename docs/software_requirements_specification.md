@@ -8,10 +8,14 @@ describe features of the system, and non-functional requirements describes attri
 
 1. Home Page
     1. The home page shall be displayed when the user logs into the journal.
-		2. The homepage shall be displayed after the user clicks the login button from after creating an account.
+		2. The home page shall be displayed after the user clicks the login button afrom the login page.
+		3. The home page shall be displayed after the user clicks the login button from after creating an account.
+		4. The home page shall display a logout button when the user is done with the journal which returns the user to the login page.
 
 2. Public Journal Interactions
     1. The ability to type in the comments shall be displayed when the user clicks the comment button.
+		2. The user shall have the ability to use the smartprompt when the user clicks the smartprompt button.
+
 
 3. Journal
     1. The Journal shall allow the user to write text when we open a journal and click onto the page.
@@ -29,12 +33,23 @@ describe features of the system, and non-functional requirements describes attri
 
 5. Smart Prompt
     1. The smart prompt shall suggest a journal prompt when a new journal is created.
+		2. The smart prompt shall allow the user the option whether or not to use the prompt for the journal.
+
+6. Authentication Pages
+		1. The login page shall be displayed when the user initially opens the app.
+		2. The login page shall allow the user the choice to login or to create an account
+		3. The login page shall allow the user to login onto the home page by allowing the user to click the Login button.
+		4. The login page shall allow the user to access the create account page by clicking the create account page.
+		5. The create account page shall allow the user to create an account then login or return to the login page
+		6. The create account page shall allow to user to login by clicking the login button to the home page.
+		7. The create account page shall allow the user to return to the login page by clicking the here text.
 
 # Non-functional Requirements
 
 1. Accessibility
     1. The app must be available on the latest version of iOS (17).
 		2. The app shall be avalible to any iOS user who downloaded the app.
+		3. The app shall not be avalible to anyone who does not have the iOS.
 
 2. Performance
     1. The journal shall have the ability to peform very fast when it is being used.
@@ -42,6 +57,7 @@ describe features of the system, and non-functional requirements describes attri
     3. Public posts shall load on the home page in less than 2 seconds.
 		4. The Login page to Homepage shall load in less than 1 second after the user clicks the login button
 		5. The Create account page shall load in less than 1 second after the user clicks the create account button.
+		6. The smartprompt shall take less than 1 second when the user clicks the smartprompt button to help generate the prompt for the journal.
 
 3. Security
     1. The journal when it is being used shall have high security to prevent it from leaking data or being hacked into.
