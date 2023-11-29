@@ -47,7 +47,7 @@ describe features of the system, and non-functional requirements describes attri
 # Non-functional Requirements
 
 1. Accessibility
-    1. The app must be available on the latest version of iOS (17).
+    1. The app shall be available on the latest version of iOS (17).
 		2. The app shall be avalible to any iOS user who downloaded the app.
 		3. The app shall not be avalible to anyone who does not have the iOS.
 
@@ -56,12 +56,14 @@ describe features of the system, and non-functional requirements describes attri
     2. Images in a journal shall load in less than 1 second when uploaded.
     3. Public posts shall load on the home page in less than 2 seconds.
 		4. The Login page to Homepage shall load in less than 1 second after the user clicks the login button
-		5. The Create account page shall load in less than 1 second after the user clicks the create account button.
+		5. The Create account page shall load in less than 1 second after the user clicks the create account button from the login page
 		6. The smartprompt shall take less than 1 second when the user clicks the smartprompt button to help generate the prompt for the journal.
+		7. The login page shall load in less than 1 second after the user clicks the word "here" link in the create account page.
 
 3. Security
     1. The journal when it is being used shall have high security to prevent it from leaking data or being hacked into.
 		2. The journal shall decline a user who does not have the correct username and passord to prevent fraud, which gives security to the journal.
+		3. The journal shall decline a user who does not set the username, or confirm the password to send the user from create account to the homepage giving security to the journal.
 
 4. Usability
     1. The journal shall have the ability to be reused as much times as the user makes journal entries.
@@ -70,10 +72,14 @@ describe features of the system, and non-functional requirements describes attri
 		3. The Login page shall allow the user the ability to type the username and password before logging onto an account.
 		4. The Create account page shall allow the user the ability to type the email, username, password, and confirm password before logging in.
 		5. The Profile page shall allow the user the abliity to type the bio, email, username and occupation.
+		6. The smartprompt shall allow the user to get a generated prompt that can be used to help write in the journal.
 
 5. Theme
     1. The app shall have a unified theme across all pages.
     2. The user interface of the application shall be according to the established design principles.
+		3. Where the user can type in order to login shall be in light grey so that the user has an indication on where to type before logging in.
+		4. The button to login shall be in a dark blue color so that the user knows where to login in order to access the homepage.
 
 6. Data Safety
     1. The system shall regularly backup user data to prevent data loss in case of any crashes.
+		2. The system shall alert the user in case an error or a breachin security were to occur.
