@@ -46,7 +46,7 @@ struct CreateAccountView: View {
             }
         }
         func create_account(email: String, username: String, password: String, con_password: String) {
-            auth.auth().signIn(withEmail: email, username: username, password: password, con_password: con_password) { authResult, error in
+            auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if error != nil {
                     print(error?.localizedDescription ?? "")
                 } else {
