@@ -57,14 +57,14 @@ struct AuthenticationView: View {
         }
     }
     
-    func login() {
-        Task {
-            await authenticationState.login(
-                username: username,
-                password: password
-            )
-        }
-    }
+    func login(email: String, password: String) {
+                Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+                    if error != nil {
+                        print(error?.localizedDescription ?? "")
+                    } else {
+                        print("success")
+                    }
+                }
 }
 
 #Preview {
