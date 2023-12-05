@@ -44,6 +44,15 @@ struct CreateAccountView: View {
                 .padding()
             }
         }
+        func login(email: String, username: String, password: String, con_password: String) {
+            auth.auth().signIn(withEmail: email, username: username, password: password, con_password: con_password) { authResult, error in
+                if error != nil {
+                    print(error?.localizedDescription ?? "")
+                } else {
+                    print("sucess")
+                }
+                }
+            }
     }
 }
 
