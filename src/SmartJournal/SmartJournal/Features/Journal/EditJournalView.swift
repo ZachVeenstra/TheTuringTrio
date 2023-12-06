@@ -7,6 +7,9 @@
 
 import SwiftUI
 import PhotosUI
+import Firebase
+import FirebaseCore
+import FirebaseFirestore
 
 struct EditJournalView: View {
     @StateObject private var viewModel = MultiplePhotoPickerViewModel()
@@ -44,13 +47,18 @@ struct EditJournalView: View {
                 }
             }
             .padding()
+            
         }
     }
+    
+
 }
         
 func navigateToAttributes() {
     
 }
+
+
 
 #Preview {
     EditJournalView()
