@@ -14,25 +14,35 @@ struct HomeView: View {
     private let posts = [PostView(), PostView()]
     var body: some View {
         NavigationStack {
-        ScrollView {
-            VStack (alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-                NavigationLink("Profile") {
-                    ProfileView()
+            ScrollView {
+                VStack (alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
+                    ForEach(posts, id: \.self) { post in
+                        post
+                    }
                 }
-                .buttonStyle(ActionButton())
-                Spacer()
-                Button("Logout") {
-                    do { try Auth.auth().signOut() }
+            }
+            .toolbar {
+                ToolbarItem(placement:.topBarLeading) {
+                    Button("Logout") {
+                        do { try Auth.auth().signOut() }
                         catch { print("already logged out") }
-                }
-                ForEach(posts, id: \.self) { post in
-                    post
+                    }
                 }
                 
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: EditJournalView()) {
+                        Label("Create Journal", systemImage: "plus")
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: ProfileView()) {
+                        Label("Go to profile", systemImage: "person.circle")
+                    }
+                }
             }
-        )}
+        }
     }
-}
 }
 
 #Preview {

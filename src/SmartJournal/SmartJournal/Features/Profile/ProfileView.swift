@@ -14,7 +14,6 @@ import FirebaseCore
 struct ProfileView: View {
     @ObservedObject var viewModel = UserProfileViewModel()
     @State private var isSignInPresented = false
-    private let image = HashableImage(image: Image(systemName: "photo"))
     
     var body: some View {
         if let user = viewModel.user {

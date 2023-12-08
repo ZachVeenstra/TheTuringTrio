@@ -11,7 +11,7 @@ import PhotosUI
 
 @MainActor
 final class MultiplePhotoPickerViewModel: ObservableObject {
-    @Published private(set) var photos: [HashableImage] = []
+    @Published private(set) var photos: [UIImage] = []
     @Published var imageSelections: [PhotosPickerItem] = [] {
         didSet {
             self.loadTransferable(from: imageSelections)
@@ -20,12 +20,13 @@ final class MultiplePhotoPickerViewModel: ObservableObject {
     
     // Learned the use of loadTransferable here: https://developer.apple.com/documentation/photokit/photospicker
     func loadTransferable(from imageSelections: [PhotosPickerItem]) {
+        self.photos.removeAll()
         for imageSelection in imageSelections {
-            imageSelection.loadTransferable(type: Image.self) { result in
+            imageSelection.loadTransferable(type: Data.self) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let image?):
-                        self.photos.append(HashableImage(image: image))
+                        self.photos.append(UIImage(data: image)!)
                         // Handle the success case with the image.
                     case .success(nil):
                         print("Photo was nil.")

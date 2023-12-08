@@ -12,7 +12,7 @@ import PhotosUI
 @MainActor
 final class SinglePhotoPickerViewModel: ObservableObject {
     
-    @Published private(set) var photo: HashableImage? = nil
+    @Published private(set) var photo: UIImage?
     @Published var imageSelection: PhotosPickerItem? = nil {
         didSet {
             self.loadTransferable(from: imageSelection ?? PhotosPickerItem(itemIdentifier: ""))
@@ -22,14 +22,14 @@ final class SinglePhotoPickerViewModel: ObservableObject {
     
     // Learned the use of loadTransferable here: https://developer.apple.com/documentation/photokit/photospicker
     func loadTransferable(from imageSelection: PhotosPickerItem) {
-        imageSelection.loadTransferable(type: Image.self) { result in
+        imageSelection.loadTransferable(type: Data.self) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let image?):
-                    self.photo = HashableImage(image: image)
+                    self.photo = UIImage(data: image)
                     // Handle the success case with the image.
                 case .success(nil):
-                    self.photo = HashableImage()
+                    print("Photo was nil.")
                     // Handle the success case with an empty value.
                 case .failure(let error):
                     print(error)

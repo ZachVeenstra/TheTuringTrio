@@ -9,49 +9,50 @@ import SwiftUI
 import PhotosUI
 
 struct EditJournalView: View {
-    @StateObject private var viewModel = MultiplePhotoPickerViewModel()
-    @State private var text = String()
+    @StateObject private var viewModel = JournalViewModel()
     
     var body: some View {
-        NavigationStack() {
+        VStack {
             VStack {
-                VStack {
-                    
-                    if viewModel.photos == [] {
-                        ImageCarousel(photos: [HashableImage()])
-                    } else {
-                        ImageCarousel(photos: viewModel.photos)
-                    }
-                    
-                    PhotosPicker(selection: $viewModel.imageSelections, matching: .images) {
-                        Text("Upload Photos")
-                    }
-                    .buttonStyle(ActionButton())
+                if viewModel.photos.isEmpty {
+                    Image(systemName: "photo")
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(10)
+                } else {
+                    ImageCarousel(photos: viewModel.photos)
                 }
                 
-                VStack {
-                    TextEditor(text: $text)
-                        .border(.black)
+                PhotosPicker(selection: $viewModel.imageSelections, matching: .images) {
+                    Text("Upload Photos")
                 }
-                
-                .toolbar {
-                    Button(action: navigateToAttributes) {
-                        HStack (alignment: .top) {
-                            Text("Next")
-                            Image(systemName: "chevron.forward")
-                        }
+                .buttonStyle(ActionButton())
+            }
+            
+            VStack {
+                TextEditor(text: $viewModel.journalData.body)
+                    .border(.black)
+            }
+            
+            .toolbar {
+                Button(action: viewModel.saveJournal) {
+                    HStack (alignment: .top) {
+                        Text("Save")
+//                        Image(systemName: "chevron.forward")
                     }
                 }
             }
-            .padding()
         }
+        .padding()
     }
 }
-        
+
 func navigateToAttributes() {
     
 }
 
 #Preview {
-    EditJournalView()
+    NavigationStack {
+        EditJournalView()
+    }
 }

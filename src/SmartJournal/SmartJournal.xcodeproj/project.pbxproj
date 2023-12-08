@@ -10,9 +10,10 @@
 		9224B37E2AFE9038009D8340 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9224B37D2AFE9038009D8340 /* InputField.swift */; };
 		9224B3832AFEA355009D8340 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9224B3822AFEA355009D8340 /* CreateAccountView.swift */; };
 		9224B3862AFEA977009D8340 /* UserAuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9224B3852AFEA977009D8340 /* UserAuthenticationState.swift */; };
+		9236D1922B23877F002AD77C /* JournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9236D1912B23877F002AD77C /* JournalViewModel.swift */; };
+		926654542B237C53001F624B /* JournalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926654532B237C53001F624B /* JournalModel.swift */; };
 		92683D912AF97DB800BEF279 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92683D902AF97DB800BEF279 /* HomeView.swift */; };
 		92683D932AF9906300BEF279 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92683D922AF9906300BEF279 /* AuthenticationView.swift */; };
-		92683D962AF999F900BEF279 /* HashableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92683D952AF999F900BEF279 /* HashableImage.swift */; };
 		9286BF8C2AF964DE005EB5EB /* SmartJournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286BF8B2AF964DE005EB5EB /* SmartJournalApp.swift */; };
 		9286BF902AF964E1005EB5EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9286BF8F2AF964E1005EB5EB /* Assets.xcassets */; };
 		9286BF932AF964E1005EB5EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9286BF922AF964E1005EB5EB /* Preview Assets.xcassets */; };
@@ -25,7 +26,7 @@
 		92D6F9962B05643600C7CE0E /* MultiplePhotoPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D6F9952B05643600C7CE0E /* MultiplePhotoPickerViewModel.swift */; };
 		92D6F9982B0587E900C7CE0E /* SinglePhotoPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D6F9972B0587E900C7CE0E /* SinglePhotoPickerViewModel.swift */; };
 		96026F6F2AFCC03D0017A391 /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96026F6E2AFCC03D0017A391 /* CustomText.swift */; };
-		96026F722AFCC0B40017A391 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96026F712AFCC0B40017A391 /* CustomButton.swift */; };
+		96026F722AFCC0B40017A391 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96026F712AFCC0B40017A391 /* ActionButton.swift */; };
 		9610676D2B0487C700B0714D /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610676C2B0487C700B0714D /* EditProfile.swift */; };
 		961067702B054DFD00B0714D /* LeftIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610676F2B054DFD00B0714D /* LeftIconButton.swift */; };
 		961067722B055C2000B0714D /* LabelsForTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961067712B055C2000B0714D /* LabelsForTextFields.swift */; };
@@ -68,9 +69,10 @@
 		9224B37D2AFE9038009D8340 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		9224B3822AFEA355009D8340 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		9224B3852AFEA977009D8340 /* UserAuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthenticationState.swift; sourceTree = "<group>"; };
+		9236D1912B23877F002AD77C /* JournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewModel.swift; sourceTree = "<group>"; };
+		926654532B237C53001F624B /* JournalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalModel.swift; sourceTree = "<group>"; };
 		92683D902AF97DB800BEF279 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		92683D922AF9906300BEF279 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
-		92683D952AF999F900BEF279 /* HashableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashableImage.swift; sourceTree = "<group>"; };
 		9286BF882AF964DE005EB5EB /* SmartJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9286BF8B2AF964DE005EB5EB /* SmartJournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartJournalApp.swift; sourceTree = "<group>"; };
 		9286BF8F2AF964E1005EB5EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,7 +88,7 @@
 		92D6F9952B05643600C7CE0E /* MultiplePhotoPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplePhotoPickerViewModel.swift; sourceTree = "<group>"; };
 		92D6F9972B0587E900C7CE0E /* SinglePhotoPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePhotoPickerViewModel.swift; sourceTree = "<group>"; };
 		96026F6E2AFCC03D0017A391 /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
-		96026F712AFCC0B40017A391 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		96026F712AFCC0B40017A391 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		9610676C2B0487C700B0714D /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		9610676F2B054DFD00B0714D /* LeftIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftIconButton.swift; sourceTree = "<group>"; };
 		961067712B055C2000B0714D /* LabelsForTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsForTextFields.swift; sourceTree = "<group>"; };
@@ -165,14 +167,6 @@
 				961620582B1EC84400249814 /* ProfileData.swift */,
 			);
 			path = Logic;
-			sourceTree = "<group>";
-		};
-		92683D942AF999E100BEF279 /* HashableImage */ = {
-			isa = PBXGroup;
-			children = (
-				92683D952AF999F900BEF279 /* HashableImage.swift */,
-			);
-			path = HashableImage;
 			sourceTree = "<group>";
 		};
 		9286BF7F2AF964DE005EB5EB = {
@@ -283,7 +277,6 @@
 				9224B37C2AFE9007009D8340 /* TextFieldModifiers */,
 				96026F702AFCC0A20017A391 /* CustomButton */,
 				96026F6D2AFCC01B0017A391 /* CustomTextComponent */,
-				92683D942AF999E100BEF279 /* HashableImage */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -299,7 +292,9 @@
 		92D6F9912B0546C800C7CE0E /* Journal */ = {
 			isa = PBXGroup;
 			children = (
+				926654532B237C53001F624B /* JournalModel.swift */,
 				92D6F9922B0546DB00C7CE0E /* EditJournalView.swift */,
+				9236D1912B23877F002AD77C /* JournalViewModel.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -325,7 +320,7 @@
 		96026F702AFCC0A20017A391 /* CustomButton */ = {
 			isa = PBXGroup;
 			children = (
-				96026F712AFCC0B40017A391 /* CustomButton.swift */,
+				96026F712AFCC0B40017A391 /* ActionButton.swift */,
 			);
 			path = CustomButton;
 			sourceTree = "<group>";
@@ -519,14 +514,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				92D6F9932B0546DB00C7CE0E /* EditJournalView.swift in Sources */,
+				926654542B237C53001F624B /* JournalModel.swift in Sources */,
 				9224B3862AFEA977009D8340 /* UserAuthenticationState.swift in Sources */,
 				9616205C2B1EDC9F00249814 /* CircularLoadingView.swift in Sources */,
 				9224B3832AFEA355009D8340 /* CreateAccountView.swift in Sources */,
 				92D6F9962B05643600C7CE0E /* MultiplePhotoPickerViewModel.swift in Sources */,
 				9286BFBE2AF967D4005EB5EB /* PostView.swift in Sources */,
-				92683D962AF999F900BEF279 /* HashableImage.swift in Sources */,
-				96026F722AFCC0B40017A391 /* CustomButton.swift in Sources */,
+				96026F722AFCC0B40017A391 /* ActionButton.swift in Sources */,
 				9224B37E2AFE9038009D8340 /* InputField.swift in Sources */,
+				9236D1922B23877F002AD77C /* JournalViewModel.swift in Sources */,
 				9286BFC22AF97524005EB5EB /* ImageCarousel.swift in Sources */,
 				961620592B1EC84400249814 /* ProfileData.swift in Sources */,
 				96026F6F2AFCC03D0017A391 /* CustomText.swift in Sources */,

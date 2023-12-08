@@ -86,7 +86,7 @@ struct EditProfileView: View {
                     }
                     
                     else {
-                        viewModelPhotoPicker.photo?.image
+                        Image(uiImage: viewModelPhotoPicker.photo ?? UIImage(systemName: "person.circle.fill")!)
                             .resizable()
                             .frame(width: 200, height: 200)
                             .clipShape(Circle())
@@ -132,27 +132,24 @@ struct EditProfileView: View {
             Button("Save Changes") {
                 isLoading = true
                 
-                if let selectedImage = viewModelPhotoPicker.photo?.image {
+                if let selectedImage = viewModelPhotoPicker.photo {
                     // Upload the selected image to Firebase Storage
-                    convert(image: selectedImage, callback: {_r in
-                    print("done converting")
-                        viewModel.uploadProfileImage(userID: viewModel.user?.id ?? "", image: _r ?? UIImage(imageLiteralResourceName: "phone") ) { result in
-                            switch result {
-                            case .success(let imageURL):
-                                // Update the user's profile with the imageURL
-                                viewModel.updateProfile(name: newName, email: newEmail, bio: newBio, profileImageUrl: imageURL)
-                                print("image uploaded successfully")
-                                isLoading = false
+                    viewModel.uploadProfileImage(userID: viewModel.user?.id ?? "", image: selectedImage) { result in
+                        switch result {
+                        case .success(let imageURL):
+                            // Update the user's profile with the imageURL
+                            viewModel.updateProfile(name: newName, email: newEmail, bio: newBio, profileImageUrl: imageURL)
+                            print("image uploaded successfully")
+                            isLoading = false
 
-                                // Dismiss the view
-                                presentationMode.wrappedValue.dismiss()
+                            // Dismiss the view
+                            presentationMode.wrappedValue.dismiss()
 
-                            case .failure(let error):
-                                print("Error uploading profile image: \(error.localizedDescription)")
-                                isLoading = false
-                            }
+                        case .failure(let error):
+                            print("Error uploading profile image: \(error.localizedDescription)")
+                            isLoading = false
                         }
-                })
+                    }
                     
                 } else {
                     viewModel.updateProfile(name: newName, email: newEmail, bio: newBio, profileImageUrl: profilePic)

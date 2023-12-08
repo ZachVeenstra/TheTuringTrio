@@ -11,7 +11,7 @@ struct PostView: View, Hashable {
     let id = UUID()
     private let profileImage = Image(systemName: "person.circle")
     private let userName = Text("John Doe")
-    private let images = [HashableImage(image: Image(systemName: "photo")), HashableImage(image: Image(systemName: "photo"))]
+    private let images = [UIImage(systemName: "photo")!, UIImage(systemName: "photo")!]
     private let text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id neque vitae nunc porttitor facilisis. Vestibulum ac bibendum nibh, eget interdum leo. Aliquam ut nisl in sem vulputate tincidunt. Pellentesque sit amet neque diam. Duis ex lectus, accumsan eget eros eget, congue venenatis lacus. Praesent posuere placerat quam."
     
     func hash(into hasher: inout Hasher) {
