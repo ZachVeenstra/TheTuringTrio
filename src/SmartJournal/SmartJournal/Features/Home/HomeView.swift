@@ -9,7 +9,6 @@ import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
-import Kingfisher
 
 struct Journal: Identifiable, Codable {
     @DocumentID var id: String?
@@ -40,7 +39,6 @@ struct HomeView: View {
                         .foregroundColor(.gray)
                     
                 }
-                //.padding()
             }
             .onAppear {
                 fetchJournals()
@@ -94,24 +92,6 @@ struct HomeView: View {
             }
         }
     }
-    private func loadImages(from photoURLs: [String]) -> [UIImage] {
-        var images: [UIImage] = []
-
-        for photoURL in photoURLs {
-            // Assuming "JournalImages" is the folder in Firebase Storage
-            let storageReference = Storage.storage().reference().child("JournalImages/").child(photoURL)
-
-            storageReference.getData(maxSize: Int64.max) { data, error in
-                if let error = error {
-                    print("Error fetching image data for \(photoURL): \(error.localizedDescription)")
-                } else if let data = data, let image = UIImage(data: data) {
-                    images.append(image)
-                }
-            }
-        }
-
-        return images
-    }
     private func downloadImages(for journal: Journal) {
         guard let journalID = journal.id else { return }
             for photoURL in journal.photos {
@@ -122,7 +102,6 @@ struct HomeView: View {
                         print("Error downloading image: \(error)")
                     } else {
                         if let data = data, let image = UIImage(data: data) {
-                            // Update the downloaded images for the specific journal entry
                             DispatchQueue.main.async {
                                 if var entryImages = downloadedImages[journalID] {
                                     entryImages.append(image)

@@ -35,7 +35,6 @@
 		9633451A2B1FFA1A0081B0F2 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963345192B1FFA1A0081B0F2 /* UserProfileViewModel.swift */; };
 		9633451D2B206C0C0081B0F2 /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = 9633451C2B206C0C0081B0F2 /* FirebaseInstallations */; };
 		9633451F2B206C220081B0F2 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 9633451E2B206C220081B0F2 /* FirebaseDynamicLinks */; };
-		96BA29682B252053006FA2D6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 96BA29672B252053006FA2D6 /* Kingfisher */; };
 		96CB51E02B1D3A9300114F0E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96CB51DF2B1D3A9300114F0E /* GoogleService-Info.plist */; };
 		96CB51E72B1D3C6500114F0E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 96CB51E62B1D3C6500114F0E /* FirebaseAuth */; };
 		96CB51E92B1D3C6500114F0E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 96CB51E82B1D3C6500114F0E /* FirebaseDatabase */; };
@@ -114,7 +113,6 @@
 				96CB51EF2B1D3C6500114F0E /* FirebaseFirestore in Frameworks */,
 				96CB51F12B1D3C6500114F0E /* FirebaseFirestoreSwift in Frameworks */,
 				9633451D2B206C0C0081B0F2 /* FirebaseInstallations in Frameworks */,
-				96BA29682B252053006FA2D6 /* Kingfisher in Frameworks */,
 				96CB51FB2B1D3C6500114F0E /* FirebaseMLModelDownloader in Frameworks */,
 				96CB51EB2B1D3C6500114F0E /* FirebaseDatabaseSwift in Frameworks */,
 				96CB52012B1D3C6500114F0E /* FirebaseStorage in Frameworks */,
@@ -395,7 +393,6 @@
 				96CB52022B1D3C6500114F0E /* FirebaseStorageCombine-Community */,
 				9633451C2B206C0C0081B0F2 /* FirebaseInstallations */,
 				9633451E2B206C220081B0F2 /* FirebaseDynamicLinks */,
-				96BA29672B252053006FA2D6 /* Kingfisher */,
 			);
 			productName = SmartJournal;
 			productReference = 9286BF882AF964DE005EB5EB /* SmartJournal.app */;
@@ -898,11 +895,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 96CB51E12B1D3C6500114F0E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDynamicLinks;
-		};
-		96BA29672B252053006FA2D6 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 96BA29662B252053006FA2D6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 		96CB51E62B1D3C6500114F0E /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
