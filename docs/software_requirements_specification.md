@@ -48,21 +48,21 @@ describe features of the system, and non-functional requirements describes attri
     1. The minimum supported version of iOS shall be 17.
 
 2. Performance
-    2. Images in a journal shall load in less than 1 second when uploaded.
-    3. Public posts shall load on the home page in less than 2 seconds.
-    4. The Login page to Homepage shall load in less than 1 second after the user clicks the login button
-    5. The Create account page shall load in less than 1 second after the user clicks the create account button from the login page
-    6. The smartprompt shall take less than 1 second when the user clicks the smartprompt button to help generate the prompt for the journal.
-    7. The login page shall load in less than 1 second after the user clicks the word "here" link in the create account page.
+    1. Images in a journal shall load in less than 1 second when uploaded.
+    2. Public posts shall load on the home page in less than 2 seconds.
+    3. The Login page to Homepage shall load in less than 1 second after the user clicks the login button
+    4. The Create account page shall load in less than 1 second after the user clicks the create account button from the login page
+    5. The smartprompt shall take less than 1 second when the user clicks the smartprompt button to help generate the prompt for the journal.
+    1. The login page shall load in less than 1 second after the user clicks the word "here" link in the create account page.
 
 3. Security
     1. The app shall have high security by requiring a username and password to enter.
 
 4. Usability
-    2. User authenticaion and authorization shall be handled efficiently to allow authorized users to access or modify their journal entries.
-    3. The system shall provide user-friendly error messages in case of failures while authenticating and making a journal entry.
-    6. The Profile page shall allow the user the abliity to type the bio, email, and username.
-    7. The smartprompt shall allow the user to get a generated prompt that can be used to help write in the journal.
+    1. User authenticaion and authorization shall be handled efficiently to allow authorized users to access or modify their journal entries.
+    2. The system shall provide user-friendly error messages in case of failures while authenticating and making a journal entry.
+    3. The Profile page shall allow the user the abliity to type the bio, email, and username.
+    4. The smartprompt shall allow the user to get a generated prompt that can be used to help write in the journal.
 
 5. Theme
     1. The app shall have a unified theme across all pages.
