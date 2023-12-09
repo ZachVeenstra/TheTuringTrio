@@ -7,35 +7,51 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 
-
+struct Journal: Identifiable, Codable {
+    @DocumentID var id: String?
+    var title: String
+    var body: String
+    var owner: String
+    var photos: [String]
+}
 
 struct HomeView: View {
-    private let posts = [PostView(), PostView()]
+    @State private var journals: [Journal] = []
+
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                VStack (alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                    ForEach(posts, id: \.self) { post in
-                        post
-                    }
+        NavigationView {
+            List(journals) { journal in
+                VStack(alignment: .leading) {
+                    Text(journal.title)
+                        .font(.headline)
+                    Text(journal.body)
+                        .foregroundColor(.gray)
                 }
+                .padding()
+            }
+            .onAppear {
+                fetchJournals()
             }
             .toolbar {
-                ToolbarItem(placement:.topBarLeading) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button("Logout") {
-                        do { try Auth.auth().signOut() }
-                        catch { print("already logged out") }
+                        do {
+                            try Auth.auth().signOut()
+                        } catch {
+                            print("Already logged out")
+                        }
                     }
                 }
-                
-                ToolbarItem(placement: .topBarTrailing) {
+
+                ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: EditJournalView()) {
                         Label("Create Journal", systemImage: "plus")
                     }
                 }
-                
-                ToolbarItem(placement: .topBarTrailing) {
+
+                ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: ProfileView()) {
                         Label("Go to profile", systemImage: "person.circle")
                     }
@@ -43,7 +59,32 @@ struct HomeView: View {
             }
         }
     }
+
+    private func fetchJournals() {
+        let collectionRef = Firestore.firestore().collection("journals")
+
+        collectionRef.addSnapshotListener { snapshot, error in
+            if let error = error {
+                print("Error fetching journals: \(error.localizedDescription)")
+                return
+            }
+            guard let documents = snapshot?.documents else {
+                print("No documents found")
+                return
+            }
+            journals = documents.compactMap { document in
+                do {
+                    let journalData = try document.data(as: Journal.self)
+                    return journalData
+                } catch {
+                    print("Error decoding journal data: \(error.localizedDescription)")
+                    return nil
+                }
+            }
+        }
+    }
 }
+
 
 #Preview {
     HomeView()
