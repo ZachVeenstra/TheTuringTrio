@@ -30,7 +30,7 @@ struct SmartJournalApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
+            NavigationStack {
                 AuthenticationSwitcher()
             }
             .environmentObject(authenticationState)

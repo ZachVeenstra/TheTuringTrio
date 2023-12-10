@@ -9,6 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct EditJournalView: View {
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel = JournalViewModel()
     
     var body: some View {
@@ -35,11 +36,9 @@ struct EditJournalView: View {
             }
             
             .toolbar {
-                Button(action: viewModel.saveJournal) {
-                    HStack (alignment: .top) {
-                        Text("Save")
-//                        Image(systemName: "chevron.forward")
-                    }
+                Button("Save") {
+                    viewModel.saveJournal()
+                    dismiss()
                 }
             }
         }

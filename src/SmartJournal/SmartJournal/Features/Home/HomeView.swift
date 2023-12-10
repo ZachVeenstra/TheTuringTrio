@@ -7,43 +7,113 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
+import FirebaseStorage
 
-
+struct Journal: Identifiable, Codable {
+    @DocumentID var id: String?
+    var title: String
+    var body: String
+    var owner: String
+    var photos: [String]
+}
 
 struct HomeView: View {
-    private let posts = [PostView(), PostView()]
+    @State private var journals: [Journal] = []
+    @State private var downloadedImages: [String: [UIImage]] = [:]
+    
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                VStack (alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                    ForEach(posts, id: \.self) { post in
-                        post
+        List(journals) { journal in
+            VStack(alignment: .leading) {
+                ImageCarousel(photos: downloadedImages[journal.id ?? ""] ?? [])
+                    .frame(height: 200)
+                
+                Text(journal.title)
+                    .font(.headline)
+                Text(journal.body)
+                    .foregroundColor(.gray)
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button("Logout") {
+                    do {
+                        try Auth.auth().signOut()
+                    } catch {
+                        print("Already logged out")
                     }
                 }
             }
-            .toolbar {
-                ToolbarItem(placement:.topBarLeading) {
-                    Button("Logout") {
-                        do { try Auth.auth().signOut() }
-                        catch { print("already logged out") }
-                    }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: EditJournalView()) {
+                    Label("Create Journal", systemImage: "plus")
                 }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: EditJournalView()) {
-                        Label("Create Journal", systemImage: "plus")
-                    }
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: ProfileView()) {
+                    Label("Go to profile", systemImage: "person.circle")
                 }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: ProfileView()) {
-                        Label("Go to profile", systemImage: "person.circle")
+            }
+        }.onAppear {
+            fetchJournals()
+            for journal in journals {
+                downloadImages(for: journal)
+            }
+        }
+    }
+    
+    private func fetchJournals() {
+        let collectionRef = Firestore.firestore().collection("journals")
+        
+        collectionRef.addSnapshotListener { snapshot, error in
+            if let error = error {
+                print("Error fetching journals: \(error.localizedDescription)")
+                return
+            }
+            guard let documents = snapshot?.documents else {
+                print("No documents found")
+                return
+            }
+            journals = documents.compactMap { document in
+                do {
+                    let journalData = try document.data(as: Journal.self)
+                    return journalData
+                } catch {
+                    print("Error decoding journal data: \(error.localizedDescription)")
+                    return nil
+                }
+            }
+        }
+    }
+    
+    private func downloadImages(for journal: Journal) {
+        guard let journalID = journal.id else { return }
+        for photoURL in journal.photos {
+            let storageRef = Storage.storage().reference(forURL: photoURL)
+            
+            storageRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
+                if let error = error {
+                    print("Error downloading image: \(error)")
+                } else {
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            if var entryImages = downloadedImages[journalID] {
+                                downloadedImages[journalID]?.removeAll()
+                                entryImages.append(image)
+                                downloadedImages[journalID] = entryImages
+                            } else {
+                                downloadedImages[journalID] = [image]
+                            }
+                        }
                     }
                 }
             }
         }
     }
 }
+
 
 #Preview {
     HomeView()
