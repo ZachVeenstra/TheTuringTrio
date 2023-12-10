@@ -183,7 +183,7 @@ This diagram shows how requirements are connected to each artifact.
 # Software Artifacts
 These are all the software artifacts created throughout the project.  
 
-[Class Diagrams](https://github.com/ZachVeenstra/TheTuringTrio/blob/main/artifacts/ClassDiagrams.pdf)  
+[Class Diagrams](https://github.com/ZachVeenstra/TheTuringTrio/blob/main/artifacts/ClassDiagrams.pdf)
 [Home Activity Diagram](https://github.com/ZachVeenstra/TheTuringTrio/blob/main/artifacts/HomeActivityDiagram.pdf)
 [Journal Activity Diagram](https://github.com/ZachVeenstra/TheTuringTrio/blob/main/artifacts/JournalActivityDiagram.pdf)
 [Journal Use Case Diagram](https://github.com/ZachVeenstra/TheTuringTrio/blob/main/artifacts/JournalsUseCaseDiagram.pdf)
