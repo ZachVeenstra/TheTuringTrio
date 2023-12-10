@@ -25,21 +25,14 @@ struct HomeView: View {
     var body: some View {
         List(journals) { journal in
             VStack(alignment: .leading) {
-                let entryImages = downloadedImages[journal.id ?? ""]
                 ImageCarousel(photos: downloadedImages[journal.id ?? ""] ?? [])
                     .frame(height: 200)
-                    .onAppear {
-                        downloadImages(for: journal)
-                    }
                 
                 Text(journal.title)
                     .font(.headline)
                 Text(journal.body)
                     .foregroundColor(.gray)
             }
-        }
-        .onAppear {
-            fetchJournals()
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -62,6 +55,11 @@ struct HomeView: View {
                 NavigationLink(destination: ProfileView()) {
                     Label("Go to profile", systemImage: "person.circle")
                 }
+            }
+        }.onAppear {
+            fetchJournals()
+            for journal in journals {
+                downloadImages(for: journal)
             }
         }
     }
@@ -102,6 +100,7 @@ struct HomeView: View {
                     if let data = data, let image = UIImage(data: data) {
                         DispatchQueue.main.async {
                             if var entryImages = downloadedImages[journalID] {
+                                downloadedImages[journalID]?.removeAll()
                                 entryImages.append(image)
                                 downloadedImages[journalID] = entryImages
                             } else {
