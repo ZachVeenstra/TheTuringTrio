@@ -56,6 +56,15 @@ describe features of the system, and non-functional requirements describes attri
 | FR27 |  The create account page shall notify the user when they have entered an invalid password. |
 | FR28 |  The create account page shall notify the user when they have entered an invalid username. |
 
+### Database
+| ID | Requirement |
+| :-------------: | :----------: | 
+| FR29 | The database shall store journals. |
+| FR30 | The database shall store images. |
+| FR31 | The database shall store users. |
+| FR32 | The database shall be Firebase. |
+| FR33 | The database shall use authentication. |
+
 ## Non-functional Requirements
 
 ### Performance
@@ -144,14 +153,37 @@ This diagram shows how requirements are connected to each artifact.
 
 | Artifact ID | Artifact Name | Requirement ID |
 | :-------------: | :----------: | :-------------: |
-| UseCase1 | Move Player | FR5 |
+| Journals | Create Journal | FR2, FR6-11, FR3 |
+| Journals | Edit Journal | FR6-11  |
+| Journals | Upload Media | FR10 |
+| Journals | Delete Journal | TBD |
+| Journals | View Journal | FR1, FR3 |
+| Journals | Save Journal | FR6-11 |
+| Interactions | View Home | FR1-5 |
+| Interactions | View Journal | FR1, FR3 |
+| Interactions | Comment Journal | TBD |
+| Interactions | View Profile | FR5, FR12 |
 
 ## Class Diagram Traceability
 | Artifact Name | Requirement ID | 
 | :-------------: |:----------: | 
-| classPlayer | NFR3, FR5 |
+| User | FR12-17 |
+| Journal | FR6-11 |
+| Database | FR29-33 |
+| HashableImage | No longer implemented |
+| ImageCarousel | FR1, FR10 |
+| SmartPrompt | TBD |
 
 ## Activity Diagram Traceability
 | Artifact ID | Artifact Name | Requirement ID | 
 | :-------------: | :----------: | :----------: | 
-| <filename> | Handle Player Input | FR1-5, NFR2 |
+| [Journal Activity Diagram](https://github.com/ZachVeenstra/TheTuringTrio/blob/main/artifacts/JournalActivityDiagram.pdf)| Handle Journal Data | FR6, FR10, NFR1 |
+| [Home Activity Diagram](https://github.com/ZachVeenstra/TheTuringTrio/blob/main/artifacts/HomeActivityDiagram.pdf)| Home Page Actions | FR1, FR5, NFR1 |
+
+# Software Artifacts
+These are all the software artifacts created throughout the project.  
+
+[Class Diagrams](https://github.com/ZachVeenstra/TheTuringTrio/blob/main/artifacts/ClassDiagrams.pdf)  
+[Home Activity Diagram](https://github.com/ZachVeenstra/TheTuringTrio/blob/main/artifacts/HomeActivityDiagram.pdf)
+[Journal Activity Diagram](https://github.com/ZachVeenstra/TheTuringTrio/blob/main/artifacts/JournalActivityDiagram.pdf)
+[Journal Use Case Diagram](https://github.com/ZachVeenstra/TheTuringTrio/blob/main/artifacts/JournalsUseCaseDiagram.pdf)

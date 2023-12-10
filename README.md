@@ -7,7 +7,7 @@ For our term project in Systems Design and Analysis, we were tasked with creatin
  - Download Xcode with the latest i0S version
  - Download the latest iOS simulator
  - Open the terminal and type "git clone https://github.com/ZachVeenstra/TheTuringTrio.git"
- - Obtain the GoogleService-Info.plist file from our team and put it in the 'SmartJournal' folder of the Xcode Project
+ - Obtain the GoogleService-Info.plist file from our team and put it in the 'TheTuringTrio/src/SmartJournal/SmartJournal' directory of the repo
  - Build/Run the Xcode Project
 
 ## Team Members and Roles
