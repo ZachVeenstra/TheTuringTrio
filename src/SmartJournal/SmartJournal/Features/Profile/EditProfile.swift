@@ -34,7 +34,7 @@ struct EditProfileView: View {
     @StateObject private var viewModelPhotoPicker = SinglePhotoPickerViewModel()
     
     @Environment(\.presentationMode) var presentationMode
-
+    
     var body: some View {
         VStack(alignment: .leading, content: {
             
@@ -105,9 +105,9 @@ struct EditProfileView: View {
                             )
                     }
                     
-                
+                    
                     Spacer()}
-            
+                
                 Spacer()
                 
             })
@@ -141,10 +141,10 @@ struct EditProfileView: View {
                             viewModel.updateProfile(name: newName, email: newEmail, bio: newBio, profileImageUrl: imageURL)
                             print("image uploaded successfully")
                             isLoading = false
-
+                            
                             // Dismiss the view
                             presentationMode.wrappedValue.dismiss()
-
+                            
                         case .failure(let error):
                             print("Error uploading profile image: \(error.localizedDescription)")
                             isLoading = false
@@ -164,7 +164,7 @@ struct EditProfileView: View {
             .padding(.bottom)
             
             if isLoading {
-                CircularLoadingView() 
+                CircularLoadingView()
                     .padding() // Display the loading indicator if isLoading is true
             }
         })
@@ -182,7 +182,7 @@ struct EditProfileView: View {
     public func convert(image: Image, callback: @escaping ((UIImage?) -> Void)) {
         DispatchQueue.main.async {
             let renderer = ImageRenderer(content: image)
-
+            
             // to adjust the size, you can use this (or set a frame to get precise output size)
             // renderer.scale = 0.25
             
