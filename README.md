@@ -2,6 +2,14 @@
 
 For our term project in Systems Design and Analysis, we were tasked with creating a team project. For our team's project, we decided to create a journal app for iOS. The main idea is that the user will upload pictures they took throughout the day, and write a journal entry about them. From there, they can save that journal and optionally post it to their public profile. If they post it publicly, other users can see the journal and can comment on it.
 
+## Instructions for Installation and Running
+
+ - Download Xcode with the latest i0S version
+ - Download the latest iOS simulator
+ - Open the terminal and type "git clone https://github.com/ZachVeenstra/TheTuringTrio.git"
+ - Obtain the GoogleService-Info.plist file from our team and put it in the 'SmartJournal' folder of the Xcode Project
+ - Build/Run the Xcode Project
+
 ## Team Members and Roles
 
 * [Zach Veenstra](https://github.com/ZachVeenstra/Portfolio)
