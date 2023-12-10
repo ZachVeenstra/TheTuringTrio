@@ -6,73 +6,77 @@
 //
 
 import SwiftUI
+import Firebase
 import FirebaseAuth
+import AlertToast
 
 
 struct AuthenticationView: View {
-
+    
     var user: User?
     
     @EnvironmentObject var authenticationState: UserAuthenticationState
-    @State private var username = ""
+    @State private var email = ""
     @State private var password = ""
+    @State private var showErrorToast = false
     
     private let STACK_SPACING: CGFloat = 50
- 
+    
     var body: some View {
-        NavigationStack {
-            VStack (spacing: STACK_SPACING) {
-                VStack{
-                    Text("Smart Journal")
-                        .font(.title)
-                        .fontWeight(.semibold)
-                    
-                    Image(systemName: "book")
-                        .font(.system(size:100))
-                }
+        VStack (spacing: STACK_SPACING) {
+            VStack{
+                Text("Smart Journal")
+                    .font(.title)
+                    .fontWeight(.semibold)
                 
-                VStack {
-                    TextField("Username", text: $username)
-                        .modifier(InputField())
-                    
-                    SecureField("Password", text: $password)
-                        .modifier(InputField())
-                    
-                    Button("Login") {
-                        login(email: username, password: password)
-                    }
-                    .buttonStyle(ActionButton())
-                }
+                Image(systemName: "book")
+                    .font(.system(size:100))
+            }
+            
+            VStack {
+                TextField("Email", text: $email)
+                    .modifier(InputField())
+                    .keyboardType(.emailAddress)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
                 
-                VStack {
-                    Text("Forgot Username/password?")
-                    Button(action: {}) {
-                        Text("Click Here")
-                            .foregroundStyle(Color.blue)
+                SecureField("Password", text: $password)
+                    .modifier(InputField())
+                
+                Button("Login") {
+                    login(email: email, password: password) { success in
+                        if !success  {
+                            self.showErrorToast.toggle()
+                        }
                     }
-                    
-                    NavigationLink("Create Account") {
-                        CreateAccountView()
-                    }
-                    .buttonStyle(ActionButton())
+                }
+                .buttonStyle(ActionButton())
+                .toast(isPresenting: $showErrorToast) {
+                    AlertToast(displayMode: .alert, type: .error(.red), title: String())
                 }
             }
-            .padding()
+            
+            VStack {
+                NavigationLink("Create Account") {
+                    CreateAccountView()
+                }
+                .buttonStyle(ActionButton())
+            }
         }
+        .padding()
     }
     
-    func login(email: String, password: String) {
+    func login(email: String, password: String, completion: @escaping (Bool) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print("Error signing in:", error.localizedDescription)
-            } else if let user = authResult?.user {
-                // Sign-in successful
+                completion (false)
+            } else if let _ = authResult?.user {
                 print("Success")
-                }
+                completion (true)
             }
         }
-
-}
+    }}
 
 #Preview {
     AuthenticationView()

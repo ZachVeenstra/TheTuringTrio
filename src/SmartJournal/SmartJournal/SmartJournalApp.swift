@@ -14,12 +14,12 @@ import FirebaseFirestore
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
-
-    return true
-  }
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        
+        return true
+    }
 }
 
 @main
@@ -30,7 +30,7 @@ struct SmartJournalApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
+            NavigationView {
                 AuthenticationSwitcher()
             }
             .environmentObject(authenticationState)
@@ -46,6 +46,6 @@ struct AuthenticationSwitcher: View {
             HomeView()
         } else {
             AuthenticationView()
-     }
+        }
     }
 }

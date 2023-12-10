@@ -39,7 +39,7 @@ struct ProfileView: View {
                 Spacer()
                 NavigationLink(destination: EditProfileView()) {
                     Text("Edit Profile")
-
+                    
                 }
                 .buttonStyle(ActionButton())
                 .padding(.top)
@@ -66,7 +66,7 @@ struct ProfileView: View {
             }
         } else {
             CircularLoadingView()
-            .padding()
+                .padding()
         }
         
     }
